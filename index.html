@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #f4f4f9;
         }
+        /* Header styles */
         .header {
             display: flex;
             align-items: center;
@@ -23,27 +24,68 @@
             margin-right: 20px;
         }
         .header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             color: gold;
             margin: 0;
         }
-        .description, .converter {
+        /* Description styles */
+        .description {
             text-align: center;
             padding: 20px;
-        }
-        .description p, .converter h2 {
-            font-size: 1.2em;
-            font-weight: bold;
+            margin-top: 20px;
         }
         .description p {
-            margin: 10px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
         }
+        .description a {
+            font-weight: bold;
+            color: blue;
+            text-decoration: none;
+        }
+        .description a:hover {
+            text-decoration: underline;
+        }
+        /* Converter section styles */
+        .converter {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        .converter h2 {
+            font-size: 2em;
+            color: #333;
+        }
+        .converter label {
+            font-size: 1.2em;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .converter select, .converter button {
+            font-size: 1em;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        #result {
+            font-size: 1.5em;
+            color: #555;
+            margin-top: 20px;
+        }
+        /* Ads section styles */
         .ads {
             text-align: center;
-            padding: 20px;
+            margin: 20px 0;
         }
-        .ad-space {
-            margin: 10px 0;
+        .ads .ad-space {
+            margin: 10px auto;
+            max-width: 600px;
         }
     </style>
 </head>
@@ -62,13 +104,13 @@
         <p>Welcome to our website! Here, you can check the approximate value of major cryptocurrencies in relation to each other.</p>
         <p>Once you’ve determined the values you’re interested in, feel free to return to our Bitcointalk thread and fill out the loan request form.</p>
         <p>
-            <a href="https://bitcointalk.org/index.php?topic=5460744.0" target="_blank" style="font-weight: bold; color: blue;">Visit our Bitcointalk Loan Request Thread</a>
+            <a href="https://bitcointalk.org/index.php?topic=5460744.0" target="_blank">Visit our Bitcointalk Loan Request Thread</a>
         </p>
     </section>
 
     <!-- Converter Section -->
     <section class="converter">
-        <h2>Calculator Crypto</h2>
+        <h2>Crypto Calculator</h2>
         <label for="crypto1">Crypto Selection 1:</label>
         <select id="crypto1">
             <option value="BTC">Bitcoin</option>
@@ -102,13 +144,6 @@
         </div>
     </section>
 
-    <script>
-        function convertCrypto() {
-            const crypto1 = document.getElementById('crypto1').value;
-            const crypto2 = document.getElementById('crypto2').value;
-            document.getElementById('result').innerHTML = `Selected: ${crypto1} to ${crypto2}`;
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
