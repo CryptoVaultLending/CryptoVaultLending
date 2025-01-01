@@ -140,20 +140,20 @@
         
         <label for="crypto1">Crypto Selection 1:</label>
         <select id="crypto1">
-            <option value="BTC">Bitcoin</option>
-            <option value="ETH">Ethereum</option>
-            <option value="LTC">Litecoin</option>
-            <option value="SOL">Solana</option>
-            <option value="USDT">Tether</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="solana">Solana</option>
+            <option value="tether">Tether</option>
         </select>
 
         <label for="crypto2">Crypto Selection 2:</label>
         <select id="crypto2">
-            <option value="BTC">Bitcoin</option>
-            <option value="ETH">Ethereum</option>
-            <option value="LTC">Litecoin</option>
-            <option value="SOL">Solana</option>
-            <option value="USDT">Tether</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="solana">Solana</option>
+            <option value="tether">Tether</option>
         </select>
 
         <button onclick="convertCrypto()">Calculate</button>
@@ -174,17 +174,26 @@
     </section>
 
     <script>
-        function convertCrypto() {
+        async function convertCrypto() {
             const amount = document.getElementById('amount').value;
             const crypto1 = document.getElementById('crypto1').value;
             const crypto2 = document.getElementById('crypto2').value;
 
             if (amount && crypto1 && crypto2) {
-                document.getElementById('result').innerText = 
-                    `Conversion from ${crypto1} to ${crypto2} for ${amount} units is being calculated.`;
+                const url = `https://api.coingecko.com/api/v3/simple/price?ids=${crypto1}&vs_currencies=${crypto2}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data && data[crypto1] && data[crypto1][crypto2]) {
+                    const rate = data[crypto1][crypto2];
+                    const result = (amount * rate).toFixed(6);
+                    document.getElementById('result').innerText = 
+                        `${amount} ${crypto1.charAt(0).toUpperCase() + crypto1.slice(1)} is approximately ${result} ${crypto2.charAt(0).toUpperCase() + crypto2.slice(1)}`;
+                } else {
+                    document.getElementById('result').innerText = "Error retrieving data. Please try again.";
+                }
             } else {
-                document.getElementById('result').innerText = 
-                    "Please fill out all fields.";
+                document.getElementById('result').innerText = "Please fill out all fields.";
             }
         }
     </script>
