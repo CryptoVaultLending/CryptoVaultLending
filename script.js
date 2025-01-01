@@ -9,8 +9,15 @@
 
             try {
                 const response = await fetch(url);
+
+                // Verifica se la risposta è ok
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
                 const data = await response.json();
 
+                // Controlla che i dati delle criptovalute siano presenti
                 if (data[crypto1] && data[crypto2]) {
                     const crypto1Price = data[crypto1].usd;
                     const crypto2Price = data[crypto2].usd;
@@ -22,11 +29,10 @@
                     document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
                 }
             } catch (error) {
-                document.getElementById('result').innerText = "Error fetching data. Please try again later.";
+                document.getElementById('result').innerText = `Error fetching data: ${error.message}. Please try again later.`;
             }
         } else {
             document.getElementById('result').innerText = "Please fill out all fields.";
         }
     }
 </script>
-
