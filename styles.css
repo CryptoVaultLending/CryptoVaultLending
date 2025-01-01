@@ -1,0 +1,62 @@
+/* Impostazioni generali */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: gold;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* Sezione descrizione */
+.description {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Calcolatore */
+.converter {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+label, select, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffcc00;
+}
+
+/* Spazi per gli ads */
+.ads {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.ad-space {
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+    background-color: #222;
+    border-radius: 5px;
+}
