@@ -137,17 +137,15 @@ button:hover {
     display: block;
     margin: 0 auto;
 }
-
-/* Nuove regole per .escrow-info */
 /* Impostazioni generali */
 body {
     font-family: Arial, sans-serif;
     background-color: black;
     color: gold;
     margin: 0;
-    padding: 20px;
-    min-height: 100vh; /* Assicurati che la pagina occupi tutta la finestra */
-    display: flex;
+    padding: 0;
+    height: 100vh; /* Usa l'intera altezza della finestra */
+    display: flex; /* Abilita il layout Flexbox */
     justify-content: center; /* Centra orizzontalmente */
     align-items: center; /* Centra verticalmente */
     text-align: center; /* Centra anche il testo */
@@ -155,11 +153,12 @@ body {
 
 /* Nuove regole per .escrow-info */
 .escrow-info {
-    background-color: #333; /* Colore di sfondo per miglior visibilità */
+    background-color: #333; /* Colore di sfondo */
     padding: 20px;
     border-radius: 8px; /* Bordi arrotondati */
-    max-width: 600px; /* Larghezza massima */
-    width: 100%; /* Si adatta alla larghezza disponibile */
+    max-width: 600px; /* Limita la larghezza massima */
+    width: 100%; /* La larghezza può variare ma non supererà max-width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra per effetto visivo */
 }
 
 .escrow-info p {
@@ -181,3 +180,4 @@ body {
 .escrow-info button:hover {
     background-color: #ffcc00;
 }
+
