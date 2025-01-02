@@ -12,12 +12,61 @@ body {
     text-align: center; /* Centra anche il testo */
 }
 
-/* Nuove regole per il contenitore */
-.escrow-container {
-    display: flex;
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
+/* Sezione descrizione */
+.description {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Calcolatore */
+.converter {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+label, select, button {
+    display: block;
     width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffcc00;
+}
+
+/* Spazi per gli ads */
+.ads {
+    text-align: center; /* Centra gli annunci */
+    margin-top: 30px;
+}
+
+.ad-space {
+    margin: 10px 0; /* Distanza tra gli annunci */
+    display: inline-block; /* Rende il div più compatibile con il contenuto */
+    background-color: transparent !important; /* Rimuove qualsiasi colore di sfondo */
+    border: none !important; /* Rimuove i bordi */
+    padding: 0; /* Rimuove eventuali padding */
+}
+
+.ad-space iframe {
+    border: none !important; /* Rimuove il bordo dell'iframe */
+    background-color: transparent !important; /* Rimuove il colore di sfondo dell'iframe */
+    display: block; /* Rende l'iframe un blocco per evitare spazi extra */
+    margin: 0 auto; /* Centra l'iframe */
 }
 
 /* Nuove regole per .escrow-info */
@@ -28,6 +77,7 @@ body {
     max-width: 600px; /* Limita la larghezza massima */
     width: 100%; /* La larghezza può variare ma non supererà max-width */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra per effetto visivo */
+    margin: 0 auto; /* Aggiungi questa riga per centrare */
 }
 
 .escrow-info p {
