@@ -139,16 +139,20 @@ button:hover {
 }
 
 /* Nuove regole per .escrow-info */
-.escrow-info {
-    text-align: center; /* Centra il testo all'interno */
-    margin: 0 auto; /* Centra la sezione nella pagina */
-    max-width: 600px; /* Imposta una larghezza massima per evitare che si allarghi troppo */
-    padding: 20px; /* Aggiungi un po' di spazio interno */
-    display: flex; /* Aggiungi display flex */
+/* Centrare il contenitore principale */
+.escrow-container {
+    display: flex;
     justify-content: center; /* Centra orizzontalmente */
     align-items: center; /* Centra verticalmente */
-    flex-direction: column; /* Assicura che gli elementi si dispongano in colonna */
-    height: 100%; /* Imposta l'altezza al 100% per il centramento verticale */
+    height: 100vh; /* Imposta l'altezza della finestra */
+}
+
+/* Nuove regole per .escrow-info */
+.escrow-info {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
 }
 
 .escrow-info p {
