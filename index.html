@@ -118,25 +118,24 @@
     </div>
 
     <section class="description">
-    <p>Welcome to our website! Here, you can check the approximate value of major cryptocurrencies in relation to each other.</p>
-    <p>Once you’ve determined the values you’re interested in, feel free to return to our Bitcointalk thread and fill out the loan request form.</p>
-    <p>
-        <a href="https://bitcointalk.org/index.php?topic=5460744.0" target="_blank">Visit our Bitcointalk Loan Request Thread</a>
-    </p>
-   <body>
+        <p>Welcome to our website! Here, you can check the approximate value of major cryptocurrencies in relation to each other.</p>
+        <p>Once you’ve determined the values you’re interested in, feel free to return to our Bitcointalk thread and fill out the loan request form.</p>
+        <p>
+            <a href="https://bitcointalk.org/index.php?topic=5460744.0" target="_blank">Visit our Bitcointalk Loan Request Thread</a>
+        </p>
+    </section>
+
     <!-- Contenuto della pagina -->
     <div class="escrow-info">
         <p><strong>Notice:</strong> Our exchange system will soon include an escrow service to ensure secure transactions. Stay tuned!</p>
         <button onclick="comingSoonAlert()">Coming Soon</button>
     </div>
+    
     <script>
         function comingSoonAlert() {
             alert("Our escrow service is coming soon! Stay tuned for updates.");
         }
     </script>
-</body>
-
-
 
     <div class="converter">
         <h2>Cryptocurrency Converter</h2>
@@ -145,119 +144,110 @@
 
         <label for="crypto1">From Cryptocurrency:</label>
         <select id="crypto1">
-    <option value="btc">Bitcoin</option>
-    <option value="eth">Ethereum</option>
-    <option value="usdt">Tether</option>
-    <option value="sol">Solana</option>
-    <option value="doge">Dogecoin</option>
-    <option value="xrp">Ripple</option>
-    <option value="ltc">Litecoin</option>
-    <option value="bnb">Binance Coin</option>
-    <option value="trx">TRON</option>
-</select>
-
+            <option value="btc">Bitcoin</option>
+            <option value="eth">Ethereum</option>
+            <option value="usdt">Tether</option>
+            <option value="sol">Solana</option>
+            <option value="doge">Dogecoin</option>
+            <option value="xrp">Ripple</option>
+            <option value="ltc">Litecoin</option>
+            <option value="bnb">Binance Coin</option>
+            <option value="trx">TRON</option>
+        </select>
 
         <label for="crypto2">To Cryptocurrency:</label>
-       <select id="crypto2">
-    <option value="btc">Bitcoin</option>
-    <option value="eth">Ethereum</option>
-    <option value="usdt">Tether</option>
-    <option value="sol">Solana</option>
-    <option value="doge">Dogecoin</option>
-    <option value="xrp">Ripple</option>
-    <option value="ltc">Litecoin</option>
-    <option value="bnb">Binance Coin</option>
-    <option value="trx">TRON</option>
-</select>
-
+        <select id="crypto2">
+            <option value="btc">Bitcoin</option>
+            <option value="eth">Ethereum</option>
+            <option value="usdt">Tether</option>
+            <option value="sol">Solana</option>
+            <option value="doge">Dogecoin</option>
+            <option value="xrp">Ripple</option>
+            <option value="ltc">Litecoin</option>
+            <option value="bnb">Binance Coin</option>
+            <option value="trx">TRON</option>
+        </select>
 
         <button onclick="convertCrypto()">Convert</button>
         <div id="result"></div>
     </div>
 
     <section class="ads">
-    <!-- Primo annuncio A-ADS -->
-    <div class="ad-space" id="ad1">
-        <iframe data-aa="2373825" src="//ad.a-ads.com/2373825?size=250x250" style="width:250px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
-    </div>
+        <!-- Primo annuncio A-ADS -->
+        <div class="ad-space" id="ad1">
+            <iframe data-aa="2373825" src="//ad.a-ads.com/2373825?size=250x250" style="width:250px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
+        </div>
 
-    <!-- Secondo annuncio A-ADS -->
-    <div class="ad-space" id="ad2">
-        <iframe data-aa='2373832' src='//ad.a-ads.com/2373832?size=250x250' style='width:250px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
-    </div>
-</section>
-
+        <!-- Secondo annuncio A-ADS -->
+        <div class="ad-space" id="ad2">
+            <iframe data-aa='2373832' src='//ad.a-ads.com/2373832?size=250x250' style='width:250px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
+        </div>
+    </section>
 
     <script>
         async function convertCrypto() {
-    const amount = document.getElementById('amount').value;
-    let crypto1 = document.getElementById('crypto1').value.toLowerCase(); // Convertito in minuscolo
-    let crypto2 = document.getElementById('crypto2').value.toLowerCase(); // Convertito in minuscolo
+            const amount = document.getElementById('amount').value;
+            let crypto1 = document.getElementById('crypto1').value.toLowerCase();
+            let crypto2 = document.getElementById('crypto2').value.toLowerCase();
 
-    // Mappiamo le criptovalute per i nomi esatti su CoinGecko
-    const cryptoMapping = {
-    'btc': 'bitcoin',
-    'eth': 'ethereum',
-    'usdt': 'tether',
-    'sol': 'solana',
-    'doge': 'dogecoin',
-    'xrp': 'ripple',
-    'ltc': 'litecoin',
-    'bnb': 'binancecoin',
-    'trx': 'tron',
-};
+            const cryptoMapping = {
+                'btc': 'bitcoin',
+                'eth': 'ethereum',
+                'usdt': 'tether',
+                'sol': 'solana',
+                'doge': 'dogecoin',
+                'xrp': 'ripple',
+                'ltc': 'litecoin',
+                'bnb': 'binancecoin',
+                'trx': 'tron',
+            };
 
-
-    // Controlla se le criptovalute sono valide
-    if (cryptoMapping[crypto1]) {
-        crypto1 = cryptoMapping[crypto1];
-    } else {
-        document.getElementById('result').innerText = "Invalid cryptocurrency for the first selection.";
-        return;
-    }
-
-    if (cryptoMapping[crypto2]) {
-        crypto2 = cryptoMapping[crypto2];
-    } else {
-        document.getElementById('result').innerText = "Invalid cryptocurrency for the second selection.";
-        return;
-    }
-
-    if (amount && crypto1 && crypto2) {
-        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${crypto1},${crypto2}&vs_currencies=usd`;
-
-        try {
-            const response = await fetch(url);
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const data = await response.json();
-
-            if (data[crypto1] && data[crypto2]) {
-                const crypto1Price = data[crypto1].usd;
-                const crypto2Price = data[crypto2].usd;
-                let result = (amount * crypto1Price) / crypto2Price;
-
-                // Aggiungi la commissione dello 0,5%
-                const feePercentage = 0.005; // 0,5%
-                result = result * (1 - feePercentage);
-
-                document.getElementById('result').innerText = 
-                    `${amount} ${crypto1.toUpperCase()} is equivalent to ${result.toFixed(4)} ${crypto2.toUpperCase()}.`;
+            if (cryptoMapping[crypto1]) {
+                crypto1 = cryptoMapping[crypto1];
             } else {
-                document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
+                document.getElementById('result').innerText = "Invalid cryptocurrency for the first selection.";
+                return;
             }
-        } catch (error) {
-            document.getElementById('result').innerText = `Error fetching data: ${error.message}. Please try again later.`;
-        }
-    } else {
-        document.getElementById('result').innerText = "Please fill out all fields.";
-    }
-}
 
-                   
+            if (cryptoMapping[crypto2]) {
+                crypto2 = cryptoMapping[crypto2];
+            } else {
+                document.getElementById('result').innerText = "Invalid cryptocurrency for the second selection.";
+                return;
+            }
+
+            if (amount && crypto1 && crypto2) {
+                const url = `https://api.coingecko.com/api/v3/simple/price?ids=${crypto1},${crypto2}&vs_currencies=usd`;
+
+                try {
+                    const response = await fetch(url);
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const data = await response.json();
+
+                    if (data[crypto1] && data[crypto2]) {
+                        const crypto1Price = data[crypto1].usd;
+                        const crypto2Price = data[crypto2].usd;
+                        let result = (amount * crypto1Price) / crypto2Price;
+
+                        const feePercentage = 0.005; 
+                        result = result * (1 - feePercentage);
+
+                        document.getElementById('result').innerText = 
+                            `${amount} ${crypto1.toUpperCase()} is equivalent to ${result.toFixed(4)} ${crypto2.toUpperCase()}.`;
+                    } else {
+                        document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
+                    }
+                } catch (error) {
+                    document.getElementById('result').innerText = `Error fetching data: ${error.message}. Please try again later.`;
+                }
+            } else {
+                document.getElementById('result').innerText = "Please fill out all fields.";
+            }
+        }
     </script>
 </body>
 </html>
