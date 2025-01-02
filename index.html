@@ -108,6 +108,26 @@
             padding: 10px;
             border-radius: 10px;
         }
+        .coming-soon {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: orange;
+            margin-top: 40px;
+        }
+        .coming-soon button {
+            background-color: gold;
+            color: black;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .coming-soon button:hover {
+            background-color: #ffcc00;
+        }
     </style>
 </head>
 <body>
@@ -159,6 +179,12 @@
         <button onclick="convertCrypto()">Convert</button>
         <div id="result"></div>
     </div>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <p>Our Escrow System will be available soon!</p>
+        <button onclick="alert('Link to be added soon!')">COMING SOON</button>
+    </section>
 
     <section class="ads">
         <!-- Primo annuncio A-ADS -->
