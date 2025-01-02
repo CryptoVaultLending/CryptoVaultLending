@@ -139,26 +139,27 @@ button:hover {
 }
 
 /* Nuove regole per .escrow-info */
-/* Aggiungere un'altezza minima alla pagina per il centramento verticale */
+/* Impostazioni generali */
 body {
     font-family: Arial, sans-serif;
     background-color: black;
     color: gold;
     margin: 0;
     padding: 20px;
-    min-height: 100vh; /* Altezza minima per il centramento verticale */
+    min-height: 100vh; /* Assicurati che la pagina occupi tutta la finestra */
     display: flex;
     justify-content: center; /* Centra orizzontalmente */
     align-items: center; /* Centra verticalmente */
+    text-align: center; /* Centra anche il testo */
 }
 
 /* Nuove regole per .escrow-info */
 .escrow-info {
-    text-align: center;
-    max-width: 600px;
+    background-color: #333; /* Colore di sfondo per miglior visibilità */
     padding: 20px;
-    background-color: #333; /* Aggiunta di uno sfondo per miglior visibilità */
-    border-radius: 8px; /* Arrotondamento dei bordi */
+    border-radius: 8px; /* Bordi arrotondati */
+    max-width: 600px; /* Larghezza massima */
+    width: 100%; /* Si adatta alla larghezza disponibile */
 }
 
 .escrow-info p {
@@ -180,5 +181,3 @@ body {
 .escrow-info button:hover {
     background-color: #ffcc00;
 }
-
-
