@@ -1,3 +1,7 @@
+function comingSoonAlert() {
+    alert("Our escrow service is coming soon! Stay tuned for updates.");
+}
+
 <script>
     async function convertCrypto() {
         const amount = document.getElementById('amount').value;
