@@ -56,12 +56,15 @@ button:hover {
 .ad-space {
     margin: 10px 0; /* Distanza tra gli annunci */
     display: inline-block; /* Rende il div più compatibile con il contenuto */
-    background-color: transparent; /* Rimuove il colore di sfondo */
-    border: none; /* Rimuove i bordi */
+    background-color: transparent !important; /* Rimuove qualsiasi colore di sfondo */
+    border: none !important; /* Rimuove i bordi */
+    padding: 0; /* Rimuove eventuali padding */
 }
 
 .ad-space iframe {
-    border: none; /* Rimuove il bordo dell'iframe */
-    background-color: transparent; /* Rimuove il colore di sfondo dell'iframe */
+    border: none !important; /* Rimuove il bordo dell'iframe */
+    background-color: transparent !important; /* Rimuove il colore di sfondo dell'iframe */
+    display: block; /* Rende l'iframe un blocco per evitare spazi extra */
+    margin: 0 auto; /* Centra l'iframe */
 }
 
