@@ -140,10 +140,13 @@ button:hover {
 
 /* Nuove regole per .escrow-info */
 .escrow-info {
+    display: flex; /* Usa Flexbox per il layout */
+    flex-direction: column; /* Imposta gli elementi in colonna */
+    align-items: center; /* Centra gli elementi orizzontalmente */
+    justify-content: center; /* Centra gli elementi verticalmente */
     text-align: center; /* Centra il testo all'interno */
-    margin: 0 auto; /* Centra la sezione nella pagina */
-    max-width: 600px; /* Imposta una larghezza massima per evitare che si allarghi troppo */
-    padding: 20px; /* Aggiungi un po' di spazio interno */
+    margin: 20px auto; /* Centra il contenitore e aggiungi margine */
+    max-width: 600px; /* Imposta una larghezza massima */
 }
 
 .escrow-info p {
