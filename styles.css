@@ -66,6 +66,14 @@ button:hover {
     margin: 0 auto; /* Centra l'iframe */
 }
 
+/* Nuove regole per .escrow-container */
+.escrow-container {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Usa l'intera altezza della finestra */
+}
+
 /* Nuove regole per .escrow-info */
 .escrow-info {
     background-color: #333; /* Colore di sfondo */
@@ -74,8 +82,6 @@ button:hover {
     max-width: 600px; /* Limita la larghezza massima */
     width: 100%; /* La larghezza può variare ma non supererà max-width */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra per effetto visivo */
-    margin-left: auto; /* Centrato orizzontalmente */
-    margin-right: auto; /* Centrato orizzontalmente */
 }
 
 .escrow-info p {
@@ -97,3 +103,4 @@ button:hover {
 .escrow-info button:hover {
     background-color: #ffcc00;
 }
+
