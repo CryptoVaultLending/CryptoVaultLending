@@ -68,3 +68,103 @@ button:hover {
     margin: 0 auto; /* Centra l'iframe */
 }
 
+/* Impostazioni generali */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: gold;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* Sezione descrizione */
+.description {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Calcolatore */
+.converter {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+label, select, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffcc00;
+}
+
+/* Spazi per gli ads */
+.ads {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.ad-space {
+    margin: 10px 0;
+    display: inline-block;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
+}
+
+.ad-space iframe {
+    border: none !important;
+    background-color: transparent !important;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Nuove regole per .escrow-info */
+.escrow-info {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.escrow-info p {
+    font-size: 1.5em;
+    color: gold;
+}
+
+.escrow-info button {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.escrow-info button:hover {
+    background-color: #ffcc00;
+}
