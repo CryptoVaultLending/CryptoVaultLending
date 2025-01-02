@@ -12,61 +12,12 @@ body {
     text-align: center; /* Centra anche il testo */
 }
 
-/* Sezione descrizione */
-.description {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Calcolatore */
-.converter {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    max-width: 400px;
-}
-
-label, select, button {
-    display: block;
+/* Nuove regole per il contenitore */
+.escrow-container {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
     width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-button {
-    background-color: gold;
-    color: black;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #ffcc00;
-}
-
-/* Spazi per gli ads */
-.ads {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.ad-space {
-    margin: 10px 0;
-    display: inline-block;
-    background-color: transparent !important;
-    border: none !important;
-    padding: 0;
-}
-
-.ad-space iframe {
-    border: none !important;
-    background-color: transparent !important;
-    display: block;
-    margin: 0 auto;
 }
 
 /* Nuove regole per .escrow-info */
