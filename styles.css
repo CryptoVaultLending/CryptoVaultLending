@@ -140,13 +140,10 @@ button:hover {
 
 /* Nuove regole per .escrow-info */
 .escrow-info {
-    text-align: center;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #222;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    max-width: 600px;
-    border-radius: 10px;
+    text-align: center; /* Centra il testo all'interno */
+    margin: 0 auto; /* Centra la sezione nella pagina */
+    max-width: 600px; /* Imposta una larghezza massima per evitare che si allarghi troppo */
+    padding: 20px; /* Aggiungi un po' di spazio interno */
 }
 
 .escrow-info p {
