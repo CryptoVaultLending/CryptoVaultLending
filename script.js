@@ -57,8 +57,8 @@ async function convertCrypto() {
             const crypto2Price = data[crypto2].usd;
             let result = (amount * crypto1Price) / crypto2Price;
 
-            // Applicazione commissione (0.5%)
-            const feePercentage = 0.005;
+            // Applicazione commissione (0.25%)
+            const feePercentage = 0.0025; // 0,25%
             result = result * (1 - feePercentage);
 
             document.getElementById('result').innerText =
