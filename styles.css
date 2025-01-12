@@ -6,12 +6,17 @@ body {
     margin: 0;
     padding: 20px;
     height: 100vh; /* Usa l'intera altezza della finestra */
-    text-align: center; /* Centra anche il testo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Centra il contenuto orizzontalmente */
 }
 
 /* Header: Titolo della pagina */
 .header {
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Centra il titolo orizzontalmente */
+    align-items: center; /* Centra il titolo verticalmente */
     margin-bottom: 30px;
 }
 
