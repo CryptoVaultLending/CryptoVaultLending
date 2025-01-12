@@ -1,62 +1,267 @@
-<script>
-    async function convertCrypto() {
-        const amount = document.getElementById('amount').value;
-        let crypto1 = document.getElementById('crypto1').value.toLowerCase();
-        let crypto2 = document.getElementById('crypto2').value.toLowerCase();
-
-        const cryptoMapping = {
-            'btc': 'bitcoin',
-            'eth': 'ethereum',
-            'usdt': 'tether',
-            'sol': 'solana',
-            'doge': 'dogecoin',
-            'xrp': 'ripple',
-            'ltc': 'litecoin',
-            'bnb': 'binancecoin',
-            'trx': 'tron',
-        };
-
-        if (cryptoMapping[crypto1]) {
-            crypto1 = cryptoMapping[crypto1];
-        } else {
-            document.getElementById('result').innerText = "Invalid cryptocurrency for the first selection.";
-            return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoVaultLending</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: gold;
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #1c1c1c;
+        }
+        .header img {
+            max-width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+        .header h1 {
+            font-size: 4em;
+            color: gold;
+            margin: 0;
+            text-align: center;
+        }
+        .description {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .description p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: gold;
+            margin: 20px 0;
+        }
+        .description a {
+            font-weight: bold;
+            color: lightblue;
+            text-decoration: none;
+        }
+        .description a:hover {
+            text-decoration: underline;
         }
 
-        if (cryptoMapping[crypto2]) {
-            crypto2 = cryptoMapping[crypto2];
-        } else {
-            document.getElementById('result').innerText = "Invalid cryptocurrency for the second selection.";
-            return;
+        .converter {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            max-width: 600px;
+            border-radius: 10px;
         }
+        .converter h2 {
+            font-size: 2em;
+            color: gold;
+        }
+        .converter label {
+            font-size: 1.2em;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .converter select, .converter button, .converter input {
+            font-size: 1em;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+        .converter input {
+            background-color: #333;
+            color: gold;
+        }
+        .converter button {
+            background-color: gold;
+            color: black;
+            cursor: pointer;
+        }
+        .converter button:hover {
+            background-color: #ffcc00;
+        }
+        #result {
+            font-size: 1.5em;
+            color: gold;
+            margin-top: 20px;
+        }
+        .ads {
+            text-align: center;
+            margin: 40px 0;
+            padding-bottom: 50px;
+        }
+        .ads .ad-space {
+            margin: 10px auto;
+            max-width: 600px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .coming-soon {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: orange;
+            margin-top: 40px;
+        }
+        .coming-soon button {
+            background-color: gold;
+            color: black;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .coming-soon button:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
 
-        if (amount && crypto1 && crypto2) {
-            const url = `https://api.coingecko.com/api/v3/simple/price?ids=${crypto1},${crypto2}&vs_currencies=usd`;
+    <div class="header">
+        <h1>CryptoVaultLending</h1>
+        <img src="https://i.imgur.com/8VKvxPE.png" alt="CryptoVaultLending Logo">
+    </div>
 
-            try {
-                const response = await fetch(url);
+    <section class="description">
+        <p>Welcome to our website! Here, you can check the approximate value of major cryptocurrencies in relation to each other.</p>
+        <p>Once you’ve determined the values you’re interested in, feel free to return to our Bitcointalk thread and fill out the loan request form.</p>
+        <p>
+            <a href="https://bitcointalk.org/index.php?topic=5460744.0" target="_blank">Visit our Bitcointalk Loan Request Thread</a>
+        </p>
+    </section>
 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+    <div class="converter">
+        <h2>Cryptocurrency Converter</h2>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" required>
 
-                const data = await response.json();
+        <label for="crypto1">From Cryptocurrency:</label>
+        <select id="crypto1">
+            <option value="btc">Bitcoin</option>
+            <option value="eth">Ethereum</option>
+            <option value="usdt">Tether</option>
+            <option value="sol">Solana</option>
+            <option value="doge">Dogecoin</option>
+            <option value="xrp">Ripple</option>
+            <option value="ltc">Litecoin</option>
+            <option value="bnb">Binance Coin</option>
+            <option value="trx">TRON</option>
+        </select>
 
-                if (data[crypto1] && data[crypto2]) {
-                    const crypto1Price = data[crypto1].usd;
-                    const crypto2Price = data[crypto2].usd;
-                    let result = (amount * crypto1Price) / crypto2Price;
+        <label for="crypto2">To Cryptocurrency:</label>
+        <select id="crypto2">
+            <option value="btc">Bitcoin</option>
+            <option value="eth">Ethereum</option>
+            <option value="usdt">Tether</option>
+            <option value="sol">Solana</option>
+            <option value="doge">Dogecoin</option>
+            <option value="xrp">Ripple</option>
+            <option value="ltc">Litecoin</option>
+            <option value="bnb">Binance Coin</option>
+            <option value="trx">TRON</option>
+        </select>
 
-                    document.getElementById('result').innerText = 
-                        `${amount} ${crypto1.toUpperCase()} is equivalent to ${result.toFixed(4)} ${crypto2.toUpperCase()}.`;
-                } else {
-                    document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
-                }
-            } catch (error) {
-                document.getElementById('result').innerText = `Error fetching data: ${error.message}. Please try again later.`;
+        <button onclick="convertCrypto()">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <p>Our Escrow System will be available soon!</p>
+        <button onclick="alert('Link to be added soon!')">COMING SOON</button>
+    </section>
+
+    <section class="ads">
+        <!-- Primo annuncio A-ADS -->
+        <div class="ad-space" id="ad1">
+            <iframe data-aa="2373825" src="//ad.a-ads.com/2373825?size=250x250" style="width:250px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
+        </div>
+
+        <!-- Secondo annuncio A-ADS -->
+        <div class="ad-space" id="ad2">
+            <iframe data-aa='2373832' src='//ad.a-ads.com/2373832?size=250x250' style='width:250px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
+        </div>
+    </section>
+
+    <script>
+        async function convertCrypto() {
+            const amount = document.getElementById('amount').value;
+            let crypto1 = document.getElementById('crypto1').value.toLowerCase();
+            let crypto2 = document.getElementById('crypto2').value.toLowerCase();
+
+            const cryptoMapping = {
+                'btc': 'bitcoin',
+                'eth': 'ethereum',
+                'usdt': 'tether',
+                'sol': 'solana',
+                'doge': 'dogecoin',
+                'xrp': 'ripple',
+                'ltc': 'litecoin',
+                'bnb': 'binancecoin',
+                'trx': 'tron',
+            };
+
+            if (cryptoMapping[crypto1]) {
+                crypto1 = cryptoMapping[crypto1];
+            } else {
+                document.getElementById('result').innerText = "Invalid cryptocurrency for the first selection.";
+                return;
             }
-        } else {
-            document.getElementById('result').innerText = "Please fill out all fields.";
+
+            if (cryptoMapping[crypto2]) {
+                crypto2 = cryptoMapping[crypto2];
+            } else {
+                document.getElementById('result').innerText = "Invalid cryptocurrency for the second selection.";
+                return;
+            }
+
+            if (amount && crypto1 && crypto2) {
+                const url = https://api.coingecko.com/api/v3/simple/price?ids=${crypto1},${crypto2}&vs_currencies=usd;
+
+                try {
+                    const response = await fetch(url);
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const data = await response.json();
+
+                    if (data[crypto1] && data[crypto2]) {
+                        const crypto1Price = data[crypto1].usd;
+                        const crypto2Price = data[crypto2].usd;
+                        let result = (amount * crypto1Price) / crypto2Price;
+
+                        const feePercentage = 0.005; 
+                        result = result * (1 - feePercentage);
+
+                        document.getElementById('result').innerText = 
+                            ${amount} ${crypto1.toUpperCase()} is equivalent to ${result.toFixed(4)} ${crypto2.toUpperCase()}.;
+                    } else {
+                        document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
+                    }
+                } catch (error) {
+                    document.getElementById('result').innerText = Error fetching data: ${error.message}. Please try again later.;
+                }
+            } else {
+                document.getElementById('result').innerText = "Please fill out all fields.";
+            }
         }
-    }
-</script>
+    </script>
+</body>
+</html>
