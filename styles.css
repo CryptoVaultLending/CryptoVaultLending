@@ -20,15 +20,17 @@ body {
     align-items: center; /* Centra il titolo verticalmente */
     margin-bottom: 30px;
     width: 100%;
+    word-wrap: break-word; /* Permette al titolo di andare su più righe se necessario */
 }
 
 .header h1 {
-    font-size: 3em; /* Dimensione del testo del titolo */
+    font-size: 5vw; /* Usa una larghezza relativa alla finestra per il font */
     color: gold;
     margin: 0;
-    word-wrap: break-word; /* Consente di fare andare il testo su una nuova linea se è troppo lungo */
     text-align: center;
-    white-space: normal; /* Evita che il titolo vada fuori schermo */
+    white-space: normal; /* Impedisce che il testo vada fuori dallo schermo */
+    overflow: hidden; /* Impedisce lo scorrimento orizzontale */
+    word-break: break-word; /* Consente di separare la parola se necessario */
 }
 
 /* Sezione descrizione */
@@ -95,7 +97,7 @@ button:hover {
 /* Media Query per schermi più piccoli (es. smartphone) */
 @media screen and (max-width: 768px) {
     .header h1 {
-        font-size: 2.5em; /* Riduce la dimensione del titolo su tablet */
+        font-size: 8vw; /* Riduce la dimensione del titolo su tablet */
     }
     .ad-space iframe {
         width: 100%; /* Rende l'iframe più largo su tablet */
@@ -105,7 +107,7 @@ button:hover {
 
 @media screen and (max-width: 480px) {
     .header h1 {
-        font-size: 2em; /* Riduce ulteriormente la dimensione su smartphone */
+        font-size: 10vw; /* Riduce ulteriormente la dimensione su smartphone */
     }
     .ad-space iframe {
         width: 100%; /* Rende l'iframe ancora più largo su smartphone */
