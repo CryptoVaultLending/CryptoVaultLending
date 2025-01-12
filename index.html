@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoVaultLending</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -29,10 +28,11 @@
             margin-top: 20px;
         }
         .header h1 {
-            font-size: 4em;
+            font-size: 2.5em;
             color: gold;
             margin: 0;
             text-align: center;
+            line-height: 1.2;
         }
         .description {
             text-align: center;
@@ -135,7 +135,9 @@
 <body>
 
     <div class="header">
-        <h1>CryptoVaultLending</h1>
+        <h1>
+            Crypto<br>Vault<br>Lending
+        </h1>
         <img src="https://i.imgur.com/8VKvxPE.png" alt="CryptoVaultLending Logo">
     </div>
 
@@ -218,52 +220,12 @@
                 'trx': 'tron',
             };
 
+            if (!amount || amount <= 0) {
+                document.getElementById('result').innerText = "Please enter a valid amount.";
+                return;
+            }
+
             if (cryptoMapping[crypto1]) {
                 crypto1 = cryptoMapping[crypto1];
             } else {
-                document.getElementById('result').innerText = "Invalid cryptocurrency for the first selection.";
-                return;
-            }
-
-            if (cryptoMapping[crypto2]) {
-                crypto2 = cryptoMapping[crypto2];
-            } else {
-                document.getElementById('result').innerText = "Invalid cryptocurrency for the second selection.";
-                return;
-            }
-
-            if (amount && crypto1 && crypto2) {
-                const url = https://api.coingecko.com/api/v3/simple/price?ids=${crypto1},${crypto2}&vs_currencies=usd;
-
-                try {
-                    const response = await fetch(url);
-
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-
-                    const data = await response.json();
-
-                    if (data[crypto1] && data[crypto2]) {
-                        const crypto1Price = data[crypto1].usd;
-                        const crypto2Price = data[crypto2].usd;
-                        let result = (amount * crypto1Price) / crypto2Price;
-
-                        const feePercentage = 0.005; 
-                        result = result * (1 - feePercentage);
-
-                        document.getElementById('result').innerText = 
-                            ${amount} ${crypto1.toUpperCase()} is equivalent to ${result.toFixed(4)} ${crypto2.toUpperCase()}.;
-                    } else {
-                        document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
-                    }
-                } catch (error) {
-                    document.getElementById('result').innerText = Error fetching data: ${error.message}. Please try again later.;
-                }
-            } else {
-                document.getElementById('result').innerText = "Please fill out all fields.";
-            }
-        }
-    </script>
-</body>
-</html>
+                document.getElementById('result').innerText
