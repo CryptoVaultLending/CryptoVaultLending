@@ -9,6 +9,25 @@ body {
     text-align: center; /* Centra anche il testo */
 }
 
+/* Header: Titolo della pagina */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 4em; /* Dimensione del testo del titolo */
+    color: gold;
+    margin: 0;
+    text-align: center;
+}
+
 /* Sezione descrizione */
 .description {
     margin-bottom: 20px;
@@ -64,4 +83,17 @@ button:hover {
     background-color: transparent !important; /* Rimuove il colore di sfondo dell'iframe */
     display: block; /* Rende l'iframe un blocco per evitare spazi extra */
     margin: 0 auto; /* Centra l'iframe */
+}
+
+/* Media Query per schermi più piccoli (es. smartphone) */
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5em; /* Riduce la dimensione del titolo su tablet */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8em; /* Riduce ulteriormente la dimensione su smartphone */
+    }
 }
