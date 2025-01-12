@@ -10,6 +10,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Centra il contenuto orizzontalmente */
+    overflow-x: hidden; /* Impedisce lo scorrimento orizzontale */
 }
 
 /* Header: Titolo della pagina */
@@ -18,12 +19,16 @@ body {
     justify-content: center; /* Centra il titolo orizzontalmente */
     align-items: center; /* Centra il titolo verticalmente */
     margin-bottom: 30px;
+    width: 100%;
 }
 
 .header h1 {
-    font-size: 4em; /* Dimensione del testo del titolo */
+    font-size: 3em; /* Dimensione del testo del titolo */
     color: gold;
     margin: 0;
+    word-wrap: break-word; /* Consente di fare andare il testo su una nuova linea se è troppo lungo */
+    text-align: center;
+    white-space: normal; /* Evita che il titolo vada fuori schermo */
 }
 
 /* Sezione descrizione */
@@ -66,6 +71,7 @@ button:hover {
 .ads {
     text-align: center; /* Centra gli annunci */
     margin-top: 30px;
+    width: 100%; /* Assicura che occupi tutta la larghezza */
 }
 
 .ad-space {
@@ -83,6 +89,7 @@ button:hover {
     margin: 0 auto; /* Centra l'iframe */
     width: 100%; /* Rende l'iframe responsive */
     max-width: 728px; /* Imposta una larghezza massima per evitare che diventi troppo grande */
+    height: 90px; /* Imposta un'altezza fissa per l'iframe */
 }
 
 /* Media Query per schermi più piccoli (es. smartphone) */
@@ -92,14 +99,16 @@ button:hover {
     }
     .ad-space iframe {
         width: 100%; /* Rende l'iframe più largo su tablet */
+        height: 90px; /* Imposta un'altezza più adatta per tablet */
     }
 }
 
 @media screen and (max-width: 480px) {
     .header h1 {
-        font-size: 1.8em; /* Riduce ulteriormente la dimensione su smartphone */
+        font-size: 2em; /* Riduce ulteriormente la dimensione su smartphone */
     }
     .ad-space iframe {
         width: 100%; /* Rende l'iframe ancora più largo su smartphone */
+        height: 60px; /* Imposta un'altezza più piccola per smartphone */
     }
 }
