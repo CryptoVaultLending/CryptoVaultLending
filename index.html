@@ -202,30 +202,77 @@
         </div>
     </section>
 
-    <script>
-        async function convertCrypto() {
-            const amount = document.getElementById('amount').value;
-            let crypto1 = document.getElementById('crypto1').value.toLowerCase();
-            let crypto2 = document.getElementById('crypto2').value.toLowerCase();
+   <script>
+    async function convertCrypto() {
+        const amount = document.getElementById('amount').value;
+        let crypto1 = document.getElementById('crypto1').value.toLowerCase();
+        let crypto2 = document.getElementById('crypto2').value.toLowerCase();
 
-            const cryptoMapping = {
-                'btc': 'bitcoin',
-                'eth': 'ethereum',
-                'usdt': 'tether',
-                'sol': 'solana',
-                'doge': 'dogecoin',
-                'xrp': 'ripple',
-                'ltc': 'litecoin',
-                'bnb': 'binancecoin',
-                'trx': 'tron',
-            };
+        // Mapping delle criptovalute all'identificativo corretto per CoinGecko
+        const cryptoMapping = {
+            'btc': 'bitcoin',
+            'eth': 'ethereum',
+            'usdt': 'tether',
+            'sol': 'solana',
+            'doge': 'dogecoin',
+            'xrp': 'ripple',
+            'ltc': 'litecoin',
+            'bnb': 'binancecoin',
+            'trx': 'tron',
+        };
 
-            if (!amount || amount <= 0) {
-                document.getElementById('result').innerText = "Please enter a valid amount.";
-                return;
+        // Validazione e conversione dei nomi delle criptovalute
+        if (cryptoMapping[crypto1]) {
+            crypto1 = cryptoMapping[crypto1];
+        } else {
+            document.getElementById('result').innerText = "Invalid cryptocurrency for the first selection.";
+            return;
+        }
+
+        if (cryptoMapping[crypto2]) {
+            crypto2 = cryptoMapping[crypto2];
+        } else {
+            document.getElementById('result').innerText = "Invalid cryptocurrency for the second selection.";
+            return;
+        }
+
+        // Validazione dell'importo
+        if (!amount || amount <= 0) {
+            document.getElementById('result').innerText = "Please enter a valid amount.";
+            return;
+        }
+
+        // Costruzione dell'URL API
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${crypto1},${crypto2}&vs_currencies=usd`;
+
+        try {
+            // Richiesta API
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
 
-            if (cryptoMapping[crypto1]) {
-                crypto1 = cryptoMapping[crypto1];
+            const data = await response.json();
+
+            if (data[crypto1] && data[crypto2]) {
+                const crypto1Price = data[crypto1].usd;
+                const crypto2Price = data[crypto2].usd;
+
+                // Calcolo del risultato
+                let result = (amount * crypto1Price) / crypto2Price;
+
+                // Applicazione di una commissione del 0,5%
+                const feePercentage = 0.005;
+                result = result * (1 - feePercentage);
+
+                // Visualizzazione del risultato
+                document.getElementById('result').innerText =
+                    `${amount} ${crypto1.toUpperCase()} is equivalent to ${result.toFixed(4)} ${crypto2.toUpperCase()}.`;
             } else {
-                document.getElementById('result').innerText
+                document.getElementById('result').innerText = "Error fetching data for the selected cryptocurrencies.";
+            }
+        } catch (error) {
+            document.getElementById('result').innerText = `Error fetching data: ${error.message}. Please try again later.`;
+        }
+    }
+</script>
