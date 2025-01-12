@@ -22,13 +22,12 @@ body {
 }
 
 .header h1 {
-    font-size: clamp(16px, 5vw, 40px); /* Dimensione dinamica tra 16px e 40px */
+    font-size: clamp(16px, 5vw, 40px); /* Dimensione dinamica */
     color: gold;
-    margin: 0;
+    margin: 0 auto;
     text-align: center;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow: hidden;
+    white-space: nowrap; /* Impedisce la divisione del testo su più righe */
+    overflow: visible; /* Assicura che il testo sia completamente visibile */
 }
 
 /* Sezione descrizione */
@@ -44,9 +43,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 400px; /* Imposta una larghezza massima */
     text-align: center;
 }
+
 
 label, select, button {
     display: block;
