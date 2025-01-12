@@ -5,32 +5,30 @@ body {
     color: gold;
     margin: 0;
     padding: 20px;
-    height: 100vh; /* Usa l'intera altezza della finestra */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Centra il contenuto orizzontalmente */
-    overflow-x: hidden; /* Impedisce lo scorrimento orizzontale */
+    justify-content: flex-start;
+    text-align: center;
+    overflow-x: hidden; /* Evita lo scorrimento orizzontale */
 }
 
 /* Header: Titolo della pagina */
 .header {
-    display: flex;
-    justify-content: center; /* Centra il titolo orizzontalmente */
-    align-items: center; /* Centra il titolo verticalmente */
     margin-bottom: 30px;
     width: 100%;
-    word-wrap: break-word; /* Permette al titolo di andare su più righe se necessario */
+    text-align: center; /* Centra il titolo orizzontalmente */
 }
 
 .header h1 {
-    font-size: 5vw; /* Usa una larghezza relativa alla finestra per il font */
+    font-size: clamp(16px, 5vw, 40px); /* Dimensione dinamica tra 16px e 40px */
     color: gold;
     margin: 0;
     text-align: center;
-    white-space: normal; /* Impedisce che il testo vada fuori dallo schermo */
-    overflow: hidden; /* Impedisce lo scorrimento orizzontale */
-    word-break: break-word; /* Consente di separare la parola se necessario */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 /* Sezione descrizione */
@@ -47,6 +45,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     max-width: 400px;
+    text-align: center;
 }
 
 label, select, button {
@@ -71,46 +70,44 @@ button:hover {
 
 /* Spazi per gli ads */
 .ads {
-    text-align: center; /* Centra gli annunci */
+    text-align: center;
     margin-top: 30px;
-    width: 100%; /* Assicura che occupi tutta la larghezza */
+    width: 100%;
 }
 
 .ad-space {
-    margin: 10px 0; /* Distanza tra gli annunci */
-    display: inline-block; /* Rende il div più compatibile con il contenuto */
-    background-color: transparent !important; /* Rimuove qualsiasi colore di sfondo */
-    border: none !important; /* Rimuove i bordi */
-    padding: 0; /* Rimuove eventuali padding */
+    margin: 10px 0;
+    display: inline-block;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
 }
 
 .ad-space iframe {
-    border: none !important; /* Rimuove il bordo dell'iframe */
-    background-color: transparent !important; /* Rimuove il colore di sfondo dell'iframe */
-    display: block; /* Rende l'iframe un blocco per evitare spazi extra */
-    margin: 0 auto; /* Centra l'iframe */
-    width: 100%; /* Rende l'iframe responsive */
-    max-width: 728px; /* Imposta una larghezza massima per evitare che diventi troppo grande */
-    height: 90px; /* Imposta un'altezza fissa per l'iframe */
+    border: none !important;
+    background-color: transparent !important;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
 }
 
-/* Media Query per schermi più piccoli (es. smartphone) */
+/* Media Query per schermi più piccoli */
 @media screen and (max-width: 768px) {
     .header h1 {
-        font-size: 8vw; /* Riduce la dimensione del titolo su tablet */
+        font-size: clamp(14px, 6vw, 35px); /* Riduce il titolo su schermi medi */
     }
     .ad-space iframe {
-        width: 100%; /* Rende l'iframe più largo su tablet */
-        height: 90px; /* Imposta un'altezza più adatta per tablet */
+        height: 90px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .header h1 {
-        font-size: 10vw; /* Riduce ulteriormente la dimensione su smartphone */
+        font-size: clamp(12px, 7vw, 30px); /* Riduce ulteriormente il titolo su smartphone */
     }
     .ad-space iframe {
-        width: 100%; /* Rende l'iframe ancora più largo su smartphone */
-        height: 60px; /* Imposta un'altezza più piccola per smartphone */
+        height: 60px;
     }
 }
